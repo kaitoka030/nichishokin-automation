@@ -1,0 +1,39 @@
+name: Nichishokin Data Notification
+
+# 実行トリガーの設定
+on:
+  schedule:
+    # 混雑（実行ラグ）を避けるため、キリの良い数字（00分や30分）を避けて設定
+    # 日本時間 12:20 (UTC 3:20)
+    - cron: '20 3 * * *'
+    # 日本時間 19:20 (UTC 10:20)
+    - cron: '20 10 * * *'
+  
+  # GitHubの画面からいつでもテスト実行できるように有効化
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        # 実行に必要なライブラリをインストール
+        pip install requests beautifulsoup4 gspread oauth2client line-bot-sdk
+
+    - name: Run script
+      env:
+        # APIキーなどの機密情報は GitHub Secrets で安全に管理
+        LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+        LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+      run: python src/python_app.py
