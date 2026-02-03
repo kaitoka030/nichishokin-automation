@@ -1,0 +1,12 @@
+# HTTPリクエスト用
+requests
+
+# スクレイピング用
+beautifulsoup4
+
+# Google スプレッドシート操作用
+gspread
+oauth2client
+
+# LINE Messaging API 用
+line-bot-sdk
