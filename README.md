@@ -29,7 +29,7 @@
 
 ### 動作イメージ
 ## システム構成
-![System Architecture](docs/無題のプレゼンテーション.png)
+![System Architecture](docs/architecture.png)
 
 ## 通知イメージ
 ![LINE Notification](docs/line_sample.png)
