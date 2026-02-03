@@ -28,4 +28,8 @@
    サイト側のデータ更新が遅れている場合や、スプレッドシートの入力形式が正しくない場合でも、プログラムが異常終了しないよう例外処理を実装しています。
 
 ### 動作イメージ
-![LINE通知サンプル](https://via.placeholder.com/300x600?text=LINE+Notification+Sample)
+## システム構成
+![System Architecture](docs/無題のプレゼンテーション.png)
+
+## 通知イメージ
+![LINE Notification](docs/line_sample.png)
