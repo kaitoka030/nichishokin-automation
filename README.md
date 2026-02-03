@@ -1,0 +1,1 @@
+# nichishokin-automation
